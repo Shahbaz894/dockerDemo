@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+</head>
+<body>
+    <h1>Generate Multiplication Table</h1>
+    <form method="POST" action="/">
+        <label for="number">Enter a number:</label>
+        <input type="text" id="number" name="number" required>
+        <button type="submit">Generate Table</button>
+    </form>
+
+    {% if number is not none %}
+        <h2>Multiplication Table for {{ number }}</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Multiplier</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for n, i, result in table %}
+                    <tr>
+                        <td>{{ n }} x {{ i }}</td>
+                        <td>{{ result }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>
